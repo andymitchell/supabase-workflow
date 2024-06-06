@@ -2,23 +2,6 @@
   "name": "@andyrmitchell/supabase-workflow",
   "version": "0.0.1",
   "description": "Helpers for a Supabase project",
-  "exports": {
-    ".": {
-      "module": "./dist/index.mjs",
-      "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      },
-      "types": "./dist/index.d.ts"
-    }
-  },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
   "type": "commonjs",
   "files": [
     "dist",
