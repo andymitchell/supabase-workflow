@@ -1,0 +1,12 @@
+{
+    "deno.enable": true,
+    "deno.unstable": true,
+    "deno.lint": true,
+    "deno.path": "/usr/local/bin/deno",
+    "editor.defaultFormatter": "denoland.vscode-deno",
+    "deno.enablePaths": ["./supabase/functions",  "./supabase/exports", "./supabase/common", "./supabase/tests"], /* These paths are corrected in setup */
+    "deno.config": "./deno.jsonc", /* Path is corrected in setup*/
+    "files.exclude": {
+        "**/.git": false /* Make Git Hooks visible */
+    }
+}

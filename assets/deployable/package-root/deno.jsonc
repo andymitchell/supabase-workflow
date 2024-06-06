@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "strict": true,
+      "noUncheckedIndexedAccess": true,
+      "allowSyntheticDefaultImports": true,
+      "lib": [
+          "ES2022",
+          "deno.ns",
+          "dom"
+      ]
+    },
+    "importMap": "./supabase/functions/import_map.json"
+  }
+  
