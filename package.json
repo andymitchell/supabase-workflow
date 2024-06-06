@@ -1,7 +1,7 @@
 {
   "name": "@andyrmitchell/supabase-workflow",
   "version": "0.0.1",
-  "description": "Helpers for a new Supabase projects",
+  "description": "Helpers for a Supabase project",
   "exports": {
     ".": {
       "module": "./dist/index.mjs",
@@ -68,5 +68,16 @@
     "inquirer": "^9.2.23",
     "json5": "^2.2.3",
     "lodash-es": "^4.17.21"
+  },
+  "keywords": [
+    "supabase",
+    "guide",
+    "workflow",
+    "deployment",
+    "troubleshooting"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andymitchell/supabase-workflow.git"
   }
 }
