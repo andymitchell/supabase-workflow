@@ -19,7 +19,7 @@ export async function menu(userInput:IUserInput):Promise<void> {
         choices: [
             {
                 type: 'choice',
-                name: `Supabase Local >`,
+                name: `Supabase Local Commands >`,
                 next: {
                     type: 'rawlist',
                     name: ACTION_BUILDSCRIPT,
@@ -60,7 +60,7 @@ export async function menu(userInput:IUserInput):Promise<void> {
             },
             {
                 type: 'choice',
-                name: `Git >`,
+                name: `Git Commands >`,
                 next: {
                     type: 'rawlist',
                     name: ACTION_BUILDSCRIPT,
@@ -86,7 +86,7 @@ export async function menu(userInput:IUserInput):Promise<void> {
             },
             {
                 type: 'choice',
-                name: `Project >`,
+                name: `Project (Setup and Guide) >`,
                 next: {
                     type: 'rawlist',
                     name: ACTION_PROJECT,
