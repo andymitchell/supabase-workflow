@@ -18,4 +18,4 @@ A utility for Supabase projects
 ## How to use it
 
 1. `npm install -D @andyrmitchell/supabase-workflow` 
-2. `npx sbw` (or `npx supabase-workflow`)
+2. `npx sbw` 

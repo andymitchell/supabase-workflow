@@ -10,8 +10,7 @@
     "LICENSE"
   ],
   "bin": {
-    "supabase-workflow": "dist/sbw-cli.mjs",
-    "sbw": "dist/sbw-cli.mjs"
+    "sbw": "dist/sbw_cli.mjs"
   },
   "publishConfig": {
     "access": "public"
