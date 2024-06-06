@@ -17,5 +17,5 @@ A utility for Supabase projects
 
 ## How to use it
 
-1. `npm install @andyrmitchell/supabase-workflow` 
+1. `npm install -D @andyrmitchell/supabase-workflow` 
 2. `npx sbw` (or `npx supabase-workflow`)
