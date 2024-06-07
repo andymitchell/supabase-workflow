@@ -4,10 +4,13 @@ import { UserInputNode } from "@andyrmitchell/file-io";
 import { menu } from "./menu";
 
 async function main() {
+    const args = process.argv.slice(2); // Get command-line arguments. FYI 0 is node, 1 is the script name. Start after that. 
+    const verboseIdx = args.indexOf('--verbose');
+    const verbose = verboseIdx>-1;
 
     
     const userInput = new UserInputNode();
-    await menu(userInput);
+    await menu(userInput, verbose);
 
     userInput.close();
 

@@ -1,9 +1,10 @@
-import { IUserInput, fileIoSyncNode, getPackageDirectorySync } from "@andyrmitchell/file-io";
+import { IUserInput, fileIoSyncNode, getInvokedScriptDirectorySync, getPackageDirectorySync } from "@andyrmitchell/file-io";
 import { executeBuildscript } from "./executeBuildscript";
 import { GUIDE_DIR, setup } from "./setup";
 
 
-export async function menu(userInput:IUserInput):Promise<void> {
+
+export async function menu(userInput:IUserInput, verbose?: boolean):Promise<void> {
     
     const ACTION_BUILDSCRIPT = "action:buildscript";
     const ACTION_PROJECT = "action:project";
@@ -118,8 +119,8 @@ export async function menu(userInput:IUserInput):Promise<void> {
     if( chosen.name===ACTION_BUILDSCRIPT ) {
         let result:string;
         if( typeof chosen.meta==='string' ) {
-            console.log(`Executing: ${chosen.meta}`);
-            result = await executeBuildscript(chosen.meta);
+            if( verbose ) dLog('menu', `Executing: ${chosen.meta}`);
+            result = await executeBuildscript(chosen.meta, undefined, verbose);
         } else {
             throw new Error("Need a file URI on the answer");
         }
@@ -135,9 +136,14 @@ export async function menu(userInput:IUserInput):Promise<void> {
             let dir:string;
             if( fileIoSyncNode.has_directory(installedGuideDirectory) ) {
                 dir = installedGuideDirectory;
+                if( verbose ) dLog('menu', "Has guide installed");
             } else {
                 dir = `${getPackageDirectorySync()}/assets/${GUIDE_DIR}`;
+                if( verbose ) dLog('menu', "No guide installed. ");
             }
+            if( verbose ) dLog('menu', `directories`, {dir, pkg_dir: getPackageDirectorySync(undefined, undefined, {testing: {verbose: true}})})
+            
+            
             if( chosen.meta==='open_guide_os' ) {
                 fileIoSyncNode.execute(`open "${dir}"`);
             } else {
@@ -148,3 +154,4 @@ export async function menu(userInput:IUserInput):Promise<void> {
     
     
 }
+
