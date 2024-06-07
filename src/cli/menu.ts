@@ -142,7 +142,7 @@ export async function menu(userInput:IUserInput, verbose?: boolean):Promise<void
                 dir = `${getPackageDirectorySync()}/${LATEST_GUIDE_DIR}`;
                 if( verbose ) dLog('menu', "No guide installed. ");
             }
-            if( verbose ) dLog('menu', `directories`, {dir, pkg_dir: getPackageDirectorySync(undefined, undefined, {testing: {verbose: true}})})
+            if( verbose ) dLog('menu', `directories`, {dir, invokedScriptDirectory: getInvokedScriptDirectorySync(), pkg_dir: getPackageDirectorySync(undefined, undefined, {testing: {verbose: true}})})
             
             
             if( chosen.meta==='open_guide_os' ) {
