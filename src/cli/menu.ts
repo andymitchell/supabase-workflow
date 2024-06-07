@@ -2,6 +2,7 @@ import { IUserInput, fileIoSyncNode, getInvokedScriptDirectorySync, getPackageDi
 import { executeBuildscript } from "./executeBuildscript";
 import {  GUIDE_DIR, LATEST_GUIDE_DIR, setup } from "./setup";
 import { dLog } from "@andyrmitchell/utils";
+import { packageDirectorySync } from "pkg-dir";
 
 
 
@@ -142,7 +143,12 @@ export async function menu(userInput:IUserInput, verbose?: boolean):Promise<void
                 dir = `${getPackageDirectorySync()}/${LATEST_GUIDE_DIR}`;
                 if( verbose ) dLog('menu', "No guide installed. ");
             }
-            if( verbose ) dLog('menu', `directories`, {dir, invokedScriptDirectory: getInvokedScriptDirectorySync(), pkg_dir: getPackageDirectorySync(undefined, undefined, {testing: {verbose: true}})})
+            if( verbose ) dLog('menu', `directories`, {
+                dir, 
+                invokedScriptDirectory: getInvokedScriptDirectorySync(), 
+                getPackageDirectorySync: getPackageDirectorySync(undefined, undefined, {testing: {verbose: true}}),
+                packageDirectory: packageDirectorySync()
+            })
             
             
             if( chosen.meta==='open_guide_os' ) {

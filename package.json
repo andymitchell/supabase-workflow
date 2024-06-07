@@ -2,7 +2,7 @@
   "name": "@andyrmitchell/supabase-workflow",
   "version": "0.1.6",
   "description": "Helpers for a Supabase project",
-  "type": "commonjs",
+  "type": "module",
   "files": [
     "dist",
     "assets",
@@ -10,7 +10,7 @@
     "LICENSE"
   ],
   "bin": {
-    "sbw": "dist/sbw_cli.mjs"
+    "sbw": "dist/sbw_cli.js"
   },
   "publishConfig": {
     "access": "public"
@@ -50,7 +50,8 @@
     "@andyrmitchell/utils": "^0.4.3",
     "inquirer": "^9.2.23",
     "json5": "^2.2.3",
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.21",
+    "pkg-dir": "^8.0.0"
   },
   "keywords": [
     "supabase",

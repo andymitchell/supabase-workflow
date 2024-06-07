@@ -10,5 +10,5 @@ export default defineConfig({
   target: ['es2020'],
   minify: false,
   dts: true,
-  format: ['cjs', 'esm'], // When this changes, update 'type' in package.json 
+  format: ['esm'], // When this changes, update 'type' in package.json 
 });
