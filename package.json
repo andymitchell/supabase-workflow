@@ -23,7 +23,8 @@
     "prepublishOnly": "npm run build_prepare",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test_cli": "npx tsup && node ./dist/sbw_cli.mjs"
+    "test_cli": "npx tsup && node ./dist/sbw_cli.mjs",
+    "test_cli:verbose": "npx tsup && node ./dist/sbw_cli.mjs --verbose"
   },
   "author": "andymitchell",
   "license": "MIT",

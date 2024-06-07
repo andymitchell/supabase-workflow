@@ -1,6 +1,7 @@
 import { IUserInput, fileIoSyncNode, getInvokedScriptDirectorySync, getPackageDirectorySync } from "@andyrmitchell/file-io";
 import { executeBuildscript } from "./executeBuildscript";
-import { GUIDE_DIR, setup } from "./setup";
+import {  GUIDE_DIR, LATEST_GUIDE_DIR, setup } from "./setup";
+import { dLog } from "@andyrmitchell/utils";
 
 
 
@@ -138,7 +139,7 @@ export async function menu(userInput:IUserInput, verbose?: boolean):Promise<void
                 dir = installedGuideDirectory;
                 if( verbose ) dLog('menu', "Has guide installed");
             } else {
-                dir = `${getPackageDirectorySync()}/assets/${GUIDE_DIR}`;
+                dir = `${getPackageDirectorySync()}/${LATEST_GUIDE_DIR}`;
                 if( verbose ) dLog('menu', "No guide installed. ");
             }
             if( verbose ) dLog('menu', `directories`, {dir, pkg_dir: getPackageDirectorySync(undefined, undefined, {testing: {verbose: true}})})

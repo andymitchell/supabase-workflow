@@ -2,6 +2,7 @@ import { Answer, IUserInput, QuestionChain, TestQuestionAnswerMap, TestUserInput
 import { existsSync, mkdirSync, rmSync } from "fs";
 
 import { setup } from "./setup";
+import { dLog } from "@andyrmitchell/utils";
 
 
 
@@ -52,6 +53,8 @@ describe('setup', () => {
     });
 
     test('basic', async () => {
+
+        
 
         mkdirSync(`${TMP_DIR}/sub/supabase/functions`, {recursive:true});
         const userInput = generateTestUserInput(baseQuestionNameAnswers, TMP_DIR);

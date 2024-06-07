@@ -7,6 +7,7 @@ const GITHUB_SBW_SCRIPTS_DIR = '.github/_sbw_scripts';
 const GITHUB_WORKFLOWS_DIR = '.github/workflows';
 const GITHUB_HOOKS_DIR = '.github/hooks';
 export const GUIDE_DIR = 'supabase-workflow-guide';
+export const LATEST_GUIDE_DIR = `${LATEST_PACKAGE_ROOT_DIR}/${GUIDE_DIR}`;
 
 
 
