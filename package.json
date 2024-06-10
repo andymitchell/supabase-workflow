@@ -45,7 +45,7 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "@andyrmitchell/file-io": "^0.10.5",
+    "@andyrmitchell/file-io": "^0.10.6",
     "@andyrmitchell/typed-config": "^0.1.0",
     "@andyrmitchell/utils": "^0.4.3",
     "inquirer": "^9.2.23",
