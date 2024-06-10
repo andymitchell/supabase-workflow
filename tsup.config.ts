@@ -2,7 +2,7 @@ import { defineConfig } from "tsup";
  
 export default defineConfig({
   entry: {
-    //'index': "src/index.ts",
+    'index': "src/module/index.ts",
     'sbw_cli': "src/cli/index.ts",
   },
   publicDir: false,
