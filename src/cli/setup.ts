@@ -14,7 +14,7 @@ export const LATEST_GUIDE_DIR = `${LATEST_PACKAGE_ROOT_DIR}/${GUIDE_DIR}`;
 export async function setup(userInput:IUserInput, consumerPackageAbsoluteDirectory?:string):Promise<void> {
 
     if( !consumerPackageAbsoluteDirectory ) {
-        consumerPackageAbsoluteDirectory = getPackageDirectorySync(fileIoSyncNode.directory_name(getPackageDirectorySync()))
+        consumerPackageAbsoluteDirectory = getPackageDirectorySync({target: 'root'}, undefined)
     }
 
     await installGithubWorkflows(userInput, consumerPackageAbsoluteDirectory);

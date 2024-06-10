@@ -6,22 +6,10 @@ import { dLog } from "@andyrmitchell/utils";
  * 
  * @param pathRelativeToBuildscripts E.g. "supabase/local_db_reset.sh"
  */
-export async function executeBuildscript(filePath:string, startFrom?:'root' | 'package' | 'buildscripts', verbose?: boolean) {
-    if( !startFrom ) startFrom = 'buildscripts';
+export async function executeBuildscript(filePath:string, verbose?: boolean) {
+    const uri = `${getPackageDirectorySync(undefined, undefined, verbose)}/assets/buildscripts/${filePath}`;
 
-    const getPackageDirectoryOptions = verbose? {testing: {verbose: true}} : undefined;
-
-    let uri:string;
-    if( startFrom==='root' ) {
-        uri = filePath;
-    } else if( startFrom==='package' ) {
-        uri = `${getPackageDirectorySync(undefined, undefined, getPackageDirectoryOptions)}/${filePath}`;
-    } else if( startFrom==='buildscripts' ) {
-        uri = `${getPackageDirectorySync(undefined, undefined, getPackageDirectoryOptions)}/assets/buildscripts/${filePath}`;
-    } else {
-        throw new Error("Unknown startFrom");
-    }
-
+    
     if( verbose ) dLog('executeBuildScript', `executeBuildscript uri: ${uri}`);
 
     if( !(await fileIoNode.has_file(uri)) ) {

@@ -1,4 +1,4 @@
-import { IUserInput, fileIoSyncNode, getInvokedScriptDirectorySync, getPackageDirectorySync } from "@andyrmitchell/file-io";
+import { IUserInput, fileIoSyncNode, getPackageDirectorySync } from "@andyrmitchell/file-io";
 import { executeBuildscript } from "./executeBuildscript";
 import {  GUIDE_DIR, LATEST_GUIDE_DIR, setup } from "./setup";
 import { dLog } from "@andyrmitchell/utils";
@@ -122,7 +122,7 @@ export async function menu(userInput:IUserInput, verbose?: boolean):Promise<void
         let result:string;
         if( typeof chosen.meta==='string' ) {
             if( verbose ) dLog('menu', `Executing: ${chosen.meta}`);
-            result = await executeBuildscript(chosen.meta, undefined, verbose);
+            result = await executeBuildscript(chosen.meta, verbose);
         } else {
             throw new Error("Need a file URI on the answer");
         }
@@ -132,7 +132,7 @@ export async function menu(userInput:IUserInput, verbose?: boolean):Promise<void
             setup(userInput);
         } else if( typeof chosen.meta==='string' && chosen.meta.indexOf('open_guide')===0 ) {
             // Get the path to the package this is installed into (instead of this package):
-            const consumerPackageDirectory = getPackageDirectorySync(fileIoSyncNode.directory_name(getPackageDirectorySync()))
+            const consumerPackageDirectory = getPackageDirectorySync({target:'root'}, undefined, verbose)
             const installedGuideDirectory = `${consumerPackageDirectory}/${GUIDE_DIR}`;
 
             let dir:string;
@@ -140,13 +140,12 @@ export async function menu(userInput:IUserInput, verbose?: boolean):Promise<void
                 dir = installedGuideDirectory;
                 if( verbose ) dLog('menu', "Has guide installed");
             } else {
-                dir = `${getPackageDirectorySync()}/${LATEST_GUIDE_DIR}`;
+                dir = `${getPackageDirectorySync(undefined, undefined, verbose)}/${LATEST_GUIDE_DIR}`;
                 if( verbose ) dLog('menu', "No guide installed. ");
             }
             if( verbose ) dLog('menu', `directories`, {
                 dir, 
-                invokedScriptDirectory: getInvokedScriptDirectorySync(), 
-                getPackageDirectorySync: getPackageDirectorySync(undefined, undefined, {testing: {verbose: true}}),
+                getPackageDirectorySync: getPackageDirectorySync(undefined, undefined, verbose),
                 packageDirectory: packageDirectorySync()
             })
             
