@@ -1,6 +1,6 @@
 {
   "name": "@andyrmitchell/supabase-workflow",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Helpers for a Supabase project",
   "type": "module",
   "files": [
