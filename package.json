@@ -1,10 +1,10 @@
 {
   "name": "@andyrmitchell/supabase-workflow",
-  "version": "0.1.13",
+  "version": "0.2.0",
   "description": "Helpers for a Supabase project",
   "exports": {
     ".": {
-        "types": "./dist/index.d.ts",
+      "types": "./dist/index.d.ts",
       "module": "./dist/index.js"
     }
   },
