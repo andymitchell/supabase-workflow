@@ -11,7 +11,7 @@ module.exports = {
     },
     transformIgnorePatterns: [
         // Don't transform node_modules for any other ES modules you use
-        '/node_modules/(?!lodash-es|dot-prop|\@electric\-sql\/pglite|pkg-dir|find-up-simple|inquirer|chalk|ansi-styles|filenamify|filename-reserved-regex)'
+        '/node_modules/(?!lodash-es|dot-prop|\@electric\-sql\/pglite|@andyrmitchell\/utils|pkg-dir|find-up-simple|inquirer|chalk|ansi-styles|filenamify|filename-reserved-regex)'
     ],
     moduleNameMapper: {
         '^#ansi-styles$': 'ansi-styles'
